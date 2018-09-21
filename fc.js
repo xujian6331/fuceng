@@ -1,12 +1,15 @@
 
 $(clickMe).on('click', function() {
-  $(popover).show()
-  console.log('show')
+  
+   if (popover.style.display == 'block') {
+    $("#popover").hide()
+  } else {
+    $("#popover").show()
+  }
+
   setTimeout(function() {
-    console.log('添加 one click')
+   
     $(document).one('click', function() {
-      console.log('我觉得这里不会执行')
-      console.log('hide')
       $(popover).hide()
     })
   }, 0)
@@ -15,6 +18,7 @@ $(clickMe).on('click', function() {
 $('#wrapper').on('click',function(e){
 	e.stopPropagation()
 })
-$(document).on(click,function(){
+/*$(document).on(click,function(){
 	$('popover').hide()
 })
+*/
